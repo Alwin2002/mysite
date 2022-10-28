@@ -6,3 +6,6 @@ def index(request):
 
 def inde(request):
     return HttpResponse('Fan')
+
+def inde1(request):
+    return HttpResponse('Fan')
