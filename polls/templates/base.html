@@ -1,6 +1,15 @@
-<header>
-    <a href="{% url 'home' %}">Home</a> 
-    <a href="{% url 'about' %}">About</a>
-    </header>
-    {% block content %}
-    {% endblock content %}
+{% load static %}
+<html>
+    <head>
+        <title>Django blog</title>
+        <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    </head>
+    <body>
+        <header>
+            <a href="{% url 'home' %}">Home</a> 
+            <a href="{% url 'about' %}">About</a>
+        </header>
+        {% block content %}
+        {% endblock content %}
+    </body>
+</html>
