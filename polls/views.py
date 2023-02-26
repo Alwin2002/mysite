@@ -18,3 +18,12 @@ class ModelView(ListView):
 
 class AboutPageView(TemplateView): 
     template_name = 'about.html'
+    
+class detail(DetailView):
+    model = blog
+    template_name="detail.html"
+
+class new(CreateView):
+    model=blog
+    template_name='new.html'
+    fields = ['title', 'author', 'body']
