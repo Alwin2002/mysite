@@ -1,6 +1,13 @@
 {% extends './base.html' %}
 {% block content %}
 <h1>Welcome to Blogging</h1>
+{% if user.is_authenticated %}
+<p>Hi {{ user.username }}</p>
+<a href="{% url 'logout' %}">Log out</a>
+{% else %}
+<p>You are not logged in.</p>
+<a href="{% url 'login' %}">Log In</a>
+{% endif %}
 {%for post in post_list%}
 <h2><a href="{% url 'detail' post.pk %}">{{post.title}}</a></h2>
 <p>{{post.body}}</p>

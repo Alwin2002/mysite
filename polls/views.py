@@ -1,6 +1,8 @@
 from django.http import HttpResponse
+from django.urls import reverse_lazy
 from django.views.generic import *
 from .models import *
+from django.contrib.auth.forms import UserCreationForm
 
 def index(request):
     return HttpResponse("jango")
@@ -26,4 +28,20 @@ class detail(DetailView):
 class new(CreateView):
     model=blog
     template_name='new.html'
-    fields = ['title', 'author', 'body']
+    fields = ['title', 'author','body']
+    
+class edit(UpdateView):
+    model=blog
+    template_name='edit.html'
+    fields=['title','body']
+    
+class delete(DeleteView):
+    model=blog
+    template_name='delete.html'
+    success_url = reverse_lazy('home')
+    
+class signup(CreateView):
+    form_class = UserCreationForm
+    success_url = reverse_lazy('login')
+    template_name = 'signup.html'
+    
